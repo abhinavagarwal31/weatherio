@@ -213,7 +213,7 @@ function App() {
         <header className="app-header">
           <div className="logo">
             <span className="logo-icon">🌦️</span>
-            <h1>WeatherFlix</h1>
+            <h1>weatherio</h1>
           </div>
           <p className="tagline">Stream the weather. Watch it live.</p>
         </header>
