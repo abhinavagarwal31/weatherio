@@ -59,9 +59,6 @@ function App() {
   }
 });
 
-  // ===== useEffect: Load recent cities from localStorage on mount =====
-  
-
   // ===== useEffect: Persist recent cities to localStorage =====
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(recentCities));
