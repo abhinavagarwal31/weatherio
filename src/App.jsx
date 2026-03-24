@@ -50,19 +50,17 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [unit, setUnit] = useState('C'); // Toggle: °C / °F
-  const [recentCities, setRecentCities] = useState([]);
+  const [recentCities, setRecentCities] = useState(() => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+});
 
   // ===== useEffect: Load recent cities from localStorage on mount =====
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setRecentCities(JSON.parse(stored));
-      }
-    } catch {
-      setRecentCities([]);
-    }
-  }, []);
+  
 
   // ===== useEffect: Persist recent cities to localStorage =====
   useEffect(() => {
